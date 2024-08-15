@@ -31,7 +31,7 @@ export function NewTask({ setIsOpenNewTask, onTasksCreated }: NewTaskProps) {
     }
 
     return (
-        <div className="flex flex-col justify-between w-[500px] h-[400px] bg-zinc-900 p-2 rounded-2xl fixed z-10 top-1/2 bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="flex flex-col justify-between w-full sm:w-[500px] h-[400px] bg-zinc-900 p-2 rounded-2xl fixed z-10 top-1/2 bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="flex items-center justify-between">
                 <textarea
                     value={title}

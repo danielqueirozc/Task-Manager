@@ -6,10 +6,12 @@ import { Tasks } from "./components/Tasks";
 import { TasksCompleted } from "./components/TasksCompleted";
 import { TasksContextProvider } from "./context/TasksContext";
 import { HeaderMobile } from "./components/HeaderMobile";
+import { IncompletedTasks } from "./components/IncompletedTasks";
 
 export default function App() {
+  const [isAllTasks, setIsAllTasks] = useState(true);
   const [isTasksCompleted, setIsTasksCompleted] = useState(false);
-  const [isAllTasks, setIsAllTasks] = useState(false);
+  const [isIncompletedTasks, setIsIncompletedTasks] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(()=> {
@@ -24,13 +26,23 @@ export default function App() {
         {isMobile ? <HeaderMobile setIsTasksCompleted={setIsTasksCompleted} setIsAllTasks={setIsAllTasks} /> : <Header />}
 
         <main className="flex items-center h-[780px] border-b">
-          {isMobile ? null : <MenuTasks setIsTasksCompleted={setIsTasksCompleted} setIsAllTasks={setIsAllTasks} />}
+          {isMobile ? 
+            null 
+            : 
+            <MenuTasks 
+              setIsTasksCompleted={setIsTasksCompleted} 
+              setIsAllTasks={setIsAllTasks} 
+              isTasksCompleted={isTasksCompleted} 
+              isTasksAll={isAllTasks}
+              isIncompletedTasks={isIncompletedTasks}
+              setIsIncompletedTasks={setIsIncompletedTasks}
+            />
+          } 
           
-          {isTasksCompleted && !isAllTasks && <TasksCompleted />}
-          
-          {!isTasksCompleted && isAllTasks && <Tasks />}
-
-          {!isTasksCompleted && !isAllTasks && <Tasks />}
+          {!isTasksCompleted && !isIncompletedTasks && isAllTasks && <Tasks />}
+          {!isTasksCompleted && !isAllTasks && !isIncompletedTasks && <Tasks />}
+          {isTasksCompleted && !isAllTasks && !isIncompletedTasks && <TasksCompleted />}         
+          {isIncompletedTasks && !isAllTasks && !isTasksCompleted && <IncompletedTasks />}
         </main>
         
         <Footer />

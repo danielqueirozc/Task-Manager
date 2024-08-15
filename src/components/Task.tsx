@@ -90,9 +90,9 @@ export function Task({ task }: TaskProps) {
                 </div> 
             ) : (
                 <div className="flex items-center justify-center gap-4 py-1">
-                    <button onClick={handleEditedTask} className="w-16 h-10 bg-cyan-600 rounded-2xl">Editar</button>
-                    <button onClick={handleDeletedTask} className="w-16 h-10 bg-red-600 rounded-2xl">Excluir</button>
-                    <button onClick={handleIsConcludeOpen} className="h-10 bg-[#00BA9E] rounded-2xl px-2">Concluir</button>
+                    <button onClick={handleEditedTask} className="font-medium w-16 h-10 bg-cyan-600 rounded-2xl">Editar</button>
+                    <button onClick={handleDeletedTask} className="font-medium w-16 h-10 bg-red-600 rounded-2xl">Excluir</button>
+                    <button onClick={handleIsConcludeOpen} className="font-medium h-10 bg-[#00BA9E] rounded-2xl px-2">Concluir</button>
                 </div>
             )}
 

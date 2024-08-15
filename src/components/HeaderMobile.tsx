@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TasksContext } from "../context/TasksContext";
 
 interface HeaderMobileProps {
     setIsTasksCompleted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,6 +19,7 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks}: HeaderMobileP
         setIsTasksCompleted(false);
     }
 
+    const {handleSearch} = useContext(TasksContext);
 
     return (
         <header className="w-full max-w-[768px] h-[60px] px-6 bg-zinc-900 m-auto rounded-t-lg flex items-center justify-between border-b">
@@ -27,7 +29,7 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks}: HeaderMobileP
 
             <div className="flex items-center gap-4">
                 <input
-                    // onChange={handleSearch} 
+                    onChange={handleSearch} 
                     type="text" 
                     className="h-10 rounded-2xl bg-zinc-800 placeholder:text-zinc-300 p-2 outline-none"
                     placeholder="Pesquisar tarefas"
