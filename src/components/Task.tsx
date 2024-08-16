@@ -10,6 +10,7 @@ interface TaskProps {
     content: string;
     title: string;
     completed?: boolean;
+    dueDate?: string;
    };
 }
 

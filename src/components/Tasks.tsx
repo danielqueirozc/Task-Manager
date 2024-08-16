@@ -7,6 +7,8 @@ interface Tasks {
     id: string;
     title: string;
     content: string;
+    completed?: boolean;
+    dueDate?: string;
 }
 
 export function Tasks() {

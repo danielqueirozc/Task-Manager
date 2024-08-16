@@ -16,7 +16,7 @@ export function Header() {
                     onChange={handleSearch} 
                     type="text" 
                     className="w-[400px] h-10 rounded-2xl bg-zinc-800 placeholder:text-zinc-300 p-2 outline-none px-4"
-                    placeholder="Pesquisar tarefas"
+                    placeholder="Pesquisar tarefas..."
                 />
             </div>
             <img src="./src/assets/IconCircleUser.png" alt="User" />

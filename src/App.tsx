@@ -7,11 +7,13 @@ import { TasksCompleted } from "./components/TasksCompleted";
 import { TasksContextProvider } from "./context/TasksContext";
 import { HeaderMobile } from "./components/HeaderMobile";
 import { IncompletedTasks } from "./components/IncompletedTasks";
+import { TasksToday } from "./components/TasksToday";
 
 export default function App() {
   const [isAllTasks, setIsAllTasks] = useState(true);
   const [isTasksCompleted, setIsTasksCompleted] = useState(false);
   const [isIncompletedTasks, setIsIncompletedTasks] = useState(false);
+  const [isOpenTasksToday, setIsOpenTasksToday] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(()=> {
@@ -36,13 +38,16 @@ export default function App() {
               isTasksAll={isAllTasks}
               isIncompletedTasks={isIncompletedTasks}
               setIsIncompletedTasks={setIsIncompletedTasks}
+              isOpenTasksToday={isOpenTasksToday}
+              setIsOpenTasksToday={setIsOpenTasksToday}
             />
           } 
           
-          {!isTasksCompleted && !isIncompletedTasks && isAllTasks && <Tasks />}
-          {!isTasksCompleted && !isAllTasks && !isIncompletedTasks && <Tasks />}
-          {isTasksCompleted && !isAllTasks && !isIncompletedTasks && <TasksCompleted />}         
-          {isIncompletedTasks && !isAllTasks && !isTasksCompleted && <IncompletedTasks />}
+          {!isTasksCompleted && !isIncompletedTasks && !isOpenTasksToday && isAllTasks && <Tasks />}
+          {!isTasksCompleted && !isAllTasks && !isIncompletedTasks && !isOpenTasksToday && <Tasks />}
+          {isTasksCompleted && !isAllTasks && !isIncompletedTasks && !isOpenTasksToday && <TasksCompleted />}         
+          {isIncompletedTasks && !isAllTasks && !isTasksCompleted && !isOpenTasksToday && <IncompletedTasks />}
+          {isOpenTasksToday && !isAllTasks && !isTasksCompleted && !isIncompletedTasks && <TasksToday />}
         </main>
         
         <Footer />

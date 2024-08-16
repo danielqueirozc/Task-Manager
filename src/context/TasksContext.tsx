@@ -5,6 +5,7 @@ interface Tasks {
     content: string;
     title: string;
     completed?: boolean;
+    dueDate?: string;   
 }
 
 export interface TasksContextData {

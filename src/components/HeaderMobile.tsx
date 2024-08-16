@@ -1,31 +1,88 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { List } from "lucide-react";
 
 interface HeaderMobileProps {
     setIsTasksCompleted: React.Dispatch<React.SetStateAction<boolean>>;
     setIsAllTasks: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsIncompletedTasks: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsOpenTasksToday: React.Dispatch<React.SetStateAction<boolean>>;
+    isTasksAll: boolean;
+    isOpenTasksToday: boolean;
+    isIncompletedTasks: boolean;
+    isTasksCompleted: boolean;
 }
 
-export function HeaderMobile({setIsTasksCompleted, setIsAllTasks}: HeaderMobileProps) {
-    const [isHeaderMobileOpen, setIsHeaderMobileOpen] = useState(false);
+export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncompletedTasks, setIsOpenTasksToday, isTasksAll, isOpenTasksToday, isIncompletedTasks, isTasksCompleted}: HeaderMobileProps) {
 
     function handleIsOpenCompletedTasks() {
         setIsTasksCompleted(true);
         setIsAllTasks(false);
+        setIsIncompletedTasks(false);
+        setIsOpenTasksToday(false);
     }
 
     function handleIsOpenAllTasks() {
         setIsAllTasks(true);
         setIsTasksCompleted(false);
+        setIsIncompletedTasks(false);
+        setIsOpenTasksToday(false);
     }
+
+    function handleIsOpenIncompletedTasks() {
+        setIsIncompletedTasks(true);
+        setIsAllTasks(false);
+        setIsTasksCompleted(false);
+        setIsOpenTasksToday(false);
+
+    }
+
+    function handleIsOpenTasksToday() {
+        setIsOpenTasksToday(true);
+        setIsTasksCompleted(false);
+        setIsAllTasks(false);
+        setIsIncompletedTasks(false);
+    }
+
 
     const {handleSearch} = useContext(TasksContext);
 
     return (
         <header className="w-full max-w-[768px] h-[60px] px-6 bg-zinc-900 m-auto rounded-t-lg flex items-center justify-between border-b">
-            <button onClick={() => setIsHeaderMobileOpen(!isHeaderMobileOpen)} className="w-8 h-8 flex justify-center items-center rounded-lg border border-zinc-700">
-                <img src="/Logo.png" alt="Logo" />
-            </button>
+           <Sheet>
+                <SheetTrigger asChild>
+                    <Button className="text-[#00BA9E]">
+                        <List size={20} />
+                    </Button>
+                </SheetTrigger>
+
+                <SheetContent className="backdrop-blur-sm flex flex-col gap-6" side="left">
+                    <div>
+                        <img src="./Logo.png" alt="" />
+                    </div>
+
+                    <div className="flex flex-col gap-6">
+                        <button onClick={handleIsOpenAllTasks} className={`flex items-center gap-2 p-4 ${isTasksAll ? 'border-r border-b trasition-all' : ''}`}>
+                            <img src="./src/assets/IconInbox.png" alt="Logo" />
+                            Todas as tarefas
+                        </button>
+                        <button onClick={handleIsOpenTasksToday} className={`flex items-center gap-2 p-4 ${isOpenTasksToday ? 'border-r border-b trasition-all' : ''}`}>
+                            <img src="./src/assets/IconCalendarDay.png" alt="Logo" />
+                            Tarefas de hoje
+                        </button>
+                        <button onClick={handleIsOpenIncompletedTasks} className={`flex items-center gap-2 p-4 ${isIncompletedTasks ? 'border-r border-b trasition-all' : ''}`}>
+                            <img src="./src/assets/IconCalendar.png" alt="Logo" />
+                            Incompletas
+                        </button>
+                        <button onClick={handleIsOpenCompletedTasks} className={`flex items-center gap-2 p-4 ${isTasksCompleted ? 'border-r border-b trasition-all' : ''}`}>
+                            <img src="./src/assets/IconCircleCheck.png" alt="Logo" />
+                            Concluidas
+                        </button>
+                    </div>
+                </SheetContent>
+           </Sheet>
 
             <div className="flex items-center gap-4">
                 <input
@@ -34,35 +91,10 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks}: HeaderMobileP
                     className="h-10 rounded-2xl bg-zinc-800 placeholder:text-zinc-300 p-2 outline-none"
                     placeholder="Pesquisar tarefas"
                 />
-                <button onClick={() => setIsHeaderMobileOpen(!isHeaderMobileOpen)}>
+                <button>
                     <img src="./src/assets/IconCircleUser.png" alt="" />
                 </button>
             </div>
-
-            {isHeaderMobileOpen && (
-                <nav className="absolute top-[48px] left-0 backdrop-blur-sm w-full h-svh bg-transparent shadow-lg py-[6px] px-1">
-                    <div className="absolute left-0 index-10 w-3/4 h-svh bg-zinc-900 p-1">
-                        <div className="flex flex-col gap-6 py-4">
-                            <button onClick={handleIsOpenAllTasks} className="flex items-center gap-2">
-                                <img src="./src/assets/IconInbox.png" alt="Logo" />
-                                Todas as tarefas
-                            </button>
-                            <button className="flex items-center gap-2">
-                                <img src="./src/assets/IconCalendarDay.png" alt="Logo" />
-                                Tarefas de hoje
-                            </button>
-                            <button className="flex items-center gap-2">
-                                <img src="./src/assets/IconCalendar.png" alt="Logo" />
-                                Incompletas
-                            </button>
-                            <button onClick={handleIsOpenCompletedTasks} className="flex items-center gap-2">
-                                <img src="./src/assets/IconCircleCheck.png" alt="Logo" />
-                                Concluidas
-                            </button>
-                        </div>
-                    </div>
-                </nav>
-            )}
         </header>
     );
 }

@@ -6,28 +6,39 @@ interface MenuTasksProps {
     isTasksAll: boolean;
     setIsIncompletedTasks: React.Dispatch<React.SetStateAction<boolean>>;
     isIncompletedTasks: boolean;
+    isOpenTasksToday: boolean;
+    setIsOpenTasksToday: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function MenuTasks({ setIsTasksCompleted, setIsAllTasks, isTasksCompleted, isTasksAll, setIsIncompletedTasks, isIncompletedTasks }: MenuTasksProps) {
+export function MenuTasks({ setIsTasksCompleted, setIsAllTasks, isTasksCompleted, isTasksAll, setIsIncompletedTasks, isIncompletedTasks, isOpenTasksToday, setIsOpenTasksToday }: MenuTasksProps) {
     
     function handleIsOpenCompletedTasks() {
         setIsTasksCompleted(true);
         setIsAllTasks(false);
         setIsIncompletedTasks(false);
-
+        setIsOpenTasksToday(false);
     }
 
     function handleIsOpenAllTasks() {
         setIsAllTasks(true);
         setIsTasksCompleted(false);
         setIsIncompletedTasks(false);
-
+        setIsOpenTasksToday(false);
     }
 
     function handleIsOpenIncompletedTasks() {
         setIsIncompletedTasks(true);
         setIsAllTasks(false);
         setIsTasksCompleted(false);
+        setIsOpenTasksToday(false);
+
+    }
+
+    function handleIsOpenTasksToday() {
+        setIsOpenTasksToday(true);
+        setIsTasksCompleted(false);
+        setIsAllTasks(false);
+        setIsIncompletedTasks(false);
     }
 
     return (
@@ -37,7 +48,7 @@ export function MenuTasks({ setIsTasksCompleted, setIsAllTasks, isTasksCompleted
                     <img src="./src/assets/IconInbox.png" alt="Logo" />
                     Todas as tarefas
                 </button>
-                <button className="flex items-center gap-2 p-4">
+                <button onClick={handleIsOpenTasksToday} className={`flex items-center gap-2 p-4 ${isOpenTasksToday ? 'border-r border-b trasition-all' : ''}`}>
                     <img src="./src/assets/IconCalendarDay.png" alt="Logo" />
                     Tarefas de hoje
                 </button>
