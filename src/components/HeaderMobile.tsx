@@ -9,13 +9,13 @@ interface HeaderMobileProps {
     setIsAllTasks: React.Dispatch<React.SetStateAction<boolean>>;
     setIsIncompletedTasks: React.Dispatch<React.SetStateAction<boolean>>;
     setIsOpenTasksToday: React.Dispatch<React.SetStateAction<boolean>>;
-    isTasksAll: boolean;
+    isAllTasks: boolean;
     isOpenTasksToday: boolean;
     isIncompletedTasks: boolean;
     isTasksCompleted: boolean;
 }
 
-export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncompletedTasks, setIsOpenTasksToday, isTasksAll, isOpenTasksToday, isIncompletedTasks, isTasksCompleted}: HeaderMobileProps) {
+export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncompletedTasks, setIsOpenTasksToday, isAllTasks, isOpenTasksToday, isIncompletedTasks, isTasksCompleted}: HeaderMobileProps) {
 
     function handleIsOpenCompletedTasks() {
         setIsTasksCompleted(true);
@@ -64,7 +64,7 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncomplet
                     </div>
 
                     <div className="flex flex-col gap-6">
-                        <button onClick={handleIsOpenAllTasks} className={`flex items-center gap-2 p-4 ${isTasksAll ? 'border-r border-b trasition-all' : ''}`}>
+                        <button onClick={handleIsOpenAllTasks} className={`flex items-center gap-2 p-4 ${isAllTasks ? 'border-r border-b trasition-all' : ''}`}>
                             <img src="./src/assets/IconInbox.png" alt="Logo" />
                             Todas as tarefas
                         </button>

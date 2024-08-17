@@ -25,7 +25,20 @@ export default function App() {
   return (
     <TasksContextProvider>
       <div className="w-full max-w-[1440px] flex flex-col m-auto">
-        {isMobile ? <HeaderMobile setIsTasksCompleted={setIsTasksCompleted} setIsAllTasks={setIsAllTasks} /> : <Header />}
+        {isMobile ? 
+          <HeaderMobile 
+            setIsTasksCompleted={setIsTasksCompleted} 
+            setIsAllTasks={setIsAllTasks}
+            setIsIncompletedTasks={setIsIncompletedTasks}
+            setIsOpenTasksToday={setIsOpenTasksToday}
+            isAllTasks={isAllTasks}
+            isTasksCompleted={isTasksCompleted}
+            isIncompletedTasks={isIncompletedTasks}
+            isOpenTasksToday={isOpenTasksToday}
+          /> 
+          : 
+          <Header />
+        }
 
         <main className="flex items-center h-[780px] border-b">
           {isMobile ? 

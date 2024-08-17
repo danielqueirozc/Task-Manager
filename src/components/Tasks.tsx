@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Task } from "./Task";
 import { NewTask } from "./NewTask";
 import { TasksContext, TasksContextData } from "../context/TasksContext";
+import { FormatedDate } from "@/utils/FormatedDate";
 
 interface Tasks {
     id: string;
@@ -24,6 +25,8 @@ export function Tasks() {
             id: crypto.randomUUID(),
             title,
             content,
+            completed: false,
+            dueDate: FormatedDate(new Date()),
         }
 
         const tasksArray = [...tasks, newTask];
