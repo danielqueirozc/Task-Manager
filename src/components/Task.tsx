@@ -62,7 +62,7 @@ export function Task({ task }: TaskProps) {
              */}
               {task.completed ? 
                 <div className="flex items-center justify-between">
-                    <h1 className="font-bold text-2xl">{task.title}</h1>
+                    <h1 className="font-bold text-xl sm:text-2xl">{task.title}</h1>
                     <button>
                         <Trash size={24} className="text-zinc-600 hover:text-red-600" onClick={handleDeletedTask}/>
                     </button>
@@ -76,7 +76,7 @@ export function Task({ task }: TaskProps) {
              * The content is rendered as a div with a class of "text-zinc-300".
              */}
             <div className="flex-1 flex flex-col justify-between overflow-auto">
-                <div className="text-zinc-300 ">
+                <div className="text-zinc-300 text-sm sm:text-base">
                     {task.content}
                 </div>
             </div>

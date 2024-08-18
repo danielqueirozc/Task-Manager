@@ -19,7 +19,8 @@ export function Header() {
                     placeholder="Pesquisar tarefas..."
                 />
             </div>
-            <img src="./src/assets/IconCircleUser.png" alt="User" />
+
+            <div />
         </header>
     );
 }

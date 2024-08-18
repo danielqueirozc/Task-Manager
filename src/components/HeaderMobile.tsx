@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { List } from "lucide-react";
+import { List, LogOut } from "lucide-react";
 
 interface HeaderMobileProps {
     setIsTasksCompleted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -88,12 +88,10 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncomplet
                 <input
                     onChange={handleSearch} 
                     type="text" 
-                    className="h-10 rounded-2xl bg-zinc-800 placeholder:text-zinc-300 p-2 outline-none"
-                    placeholder="Pesquisar tarefas"
+                    className="h-10 rounded-2xl bg-zinc-800 placeholder:text-zinc-300 placeholder:text-sm p-2 outline-none"
+                    placeholder="Pesquisar tarefas..."
                 />
-                <button>
-                    <img src="./src/assets/IconCircleUser.png" alt="" />
-                </button>
+                <div />
             </div>
         </header>
     );

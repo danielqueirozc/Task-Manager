@@ -36,8 +36,8 @@ export function Tasks() {
     return (
         <div className="flex-1 h-full bg-zinc-800 px-6 py-3 flex flex-col gap-4">
             <div className="flex justify-between">
-                <h1 className="font-bold text-4xl">Tarefas</h1>
-                <button onClick={handleOpenNewTask} className="w-[114px] h-9 bg-orange-600 hover:bg-orange-500 transition-all rounded-2xl font-medium"><span className="font-bold">+</span> Add tarefa</button>
+                <h1 className="font-bold text-3xl sm:text-4xl">Tarefas</h1>
+                <button onClick={handleOpenNewTask} className="w-[114px] h-9 bg-orange-600 hover:bg-orange-500 transition-all rounded-2xl font-medium text-sm sm:text-base"><span className="font-bold">+</span> Add tarefa</button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 overflow-auto">
