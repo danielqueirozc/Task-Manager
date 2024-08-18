@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { TaskEdited } from "./TaskEdited";
 import { TasksContext } from "../context/TasksContext";
 import { Trash } from "@phosphor-icons/react";
+import { CheckCheck } from "lucide-react";
 
 
 interface TaskProps {
@@ -87,7 +88,7 @@ export function Task({ task }: TaskProps) {
              */}
             {task.completed ? (
                 <div className="flex items-center justify-center">
-                    <img src="./src/assets/IconCircleCheck.png" alt="Concluir tarefa"/>
+                    <CheckCheck size={24} className="text-[#00BA9E]"/>
                 </div> 
             ) : (
                 <div className="flex items-center justify-center gap-4 py-1">
