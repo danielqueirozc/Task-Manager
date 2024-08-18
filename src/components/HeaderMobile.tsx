@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { List, LogOut } from "lucide-react";
+import { List } from "lucide-react";
 
 interface HeaderMobileProps {
     setIsTasksCompleted: React.Dispatch<React.SetStateAction<boolean>>;
