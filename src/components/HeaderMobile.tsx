@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { List } from "lucide-react";
+import { CalendarCheck, ClipboardCheck, ClipboardList, List, StickyNote } from "lucide-react";
 
 interface HeaderMobileProps {
     setIsTasksCompleted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -65,19 +65,20 @@ export function HeaderMobile({setIsTasksCompleted, setIsAllTasks, setIsIncomplet
 
                     <div className="flex flex-col gap-6">
                         <button onClick={handleIsOpenAllTasks} className={`flex items-center gap-2 p-4 ${isAllTasks ? 'border-r border-b trasition-all' : ''}`}>
-                            <img src="./src/assets/IconInbox.png" alt="Logo" />
+                            <ClipboardList size={20} color="#00BA9E" />
                             Todas as tarefas
                         </button>
                         <button onClick={handleIsOpenTasksToday} className={`flex items-center gap-2 p-4 ${isOpenTasksToday ? 'border-r border-b trasition-all' : ''}`}>
-                            <img src="./src/assets/IconCalendarDay.png" alt="Logo" />
+                            <CalendarCheck size={20} color="#00BA9E" />
                             Tarefas de hoje
                         </button>
                         <button onClick={handleIsOpenIncompletedTasks} className={`flex items-center gap-2 p-4 ${isIncompletedTasks ? 'border-r border-b trasition-all' : ''}`}>
-                            <img src="./src/assets/IconCalendar.png" alt="Logo" />
+                            <StickyNote size={20} color="#00BA9E" />
+
                             Incompletas
                         </button>
                         <button onClick={handleIsOpenCompletedTasks} className={`flex items-center gap-2 p-4 ${isTasksCompleted ? 'border-r border-b trasition-all' : ''}`}>
-                            <img src="./src/assets/IconCircleCheck.png" alt="Logo" />
+                            <ClipboardCheck size={20} color="#00BA9E" />
                             Concluidas
                         </button>
                     </div>
