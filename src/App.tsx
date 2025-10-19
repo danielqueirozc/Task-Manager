@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <TasksContextProvider>
-      <div className="w-full max-w-[1440px] flex flex-col m-auto">
+      <div className="w-full max-w-[1440px] h-screen flex flex-col m-auto">
         {isMobile ? 
           <HeaderMobile 
             setIsTasksCompleted={setIsTasksCompleted} 
@@ -40,7 +40,7 @@ export default function App() {
           <Header />
         }
 
-        <main className="flex items-center h-[780px] border-b">
+        <main className="flex items-center h-screen border-b">
           {isMobile ? 
             null 
             : 

@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
 
 export function Header() {
-    const {handleSearch} = useContext(TasksContext);
+    const {handleSearch} = useContext(TasksContext)
 
     return (
-        <header className="w-full max-w-[1440px] h-[60px] px-6 bg-zinc-900 m-auto rounded-t-lg flex justify-between border-b">
+        <header className="w-full max-w-[1440px] h-[60px] px-6 bg-zinc-900 rounded-t-lg flex justify-between border-b">
             <div className="flex items-center gap-2">
                 <img src="/Logo.png" alt="Logo" />
                 <h1 className="text-zinc-50">Task Manager</h1>

@@ -13,7 +13,7 @@ export function IncompletedTasks() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 overflow-auto">
                 {completedTasks.length > 0 ? completedTasks.map((task) => <Task key={task.id} task={task} />) 
-                : <p className="text-zinc-300">Nenhuma tarefa concluída</p>}
+                : <p className="text-zinc-300">Nenhuma tarefa criada</p>}
             </div> 
         </div>
     );

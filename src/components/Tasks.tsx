@@ -5,19 +5,19 @@ import { TasksContext, TasksContextData } from "../context/TasksContext";
 import { FormatedDate } from "@/utils/FormatedDate";
 
 interface Tasks {
-    id: string;
-    title: string;
-    content: string;
-    completed?: boolean;
-    dueDate?: string;
+    id: string
+    title: string
+    content: string
+    completed?: boolean
+    dueDate?: string
 }
 
 export function Tasks() {
-    const [IsOpenNewTask, setIsOpenNewTask] = useState(false);
-    const { tasks, setTasks, filteredTasks }: TasksContextData = useContext(TasksContext);
+    const [IsOpenNewTask, setIsOpenNewTask] = useState(false)
+    const { tasks, setTasks, filteredTasks }: TasksContextData = useContext(TasksContext)
 
     function handleOpenNewTask() {
-        setIsOpenNewTask(true);
+        setIsOpenNewTask(true)
     }
 
     function onTasksCreated(content: string, title: string) {
@@ -30,7 +30,7 @@ export function Tasks() {
         }
 
         const tasksArray = [...tasks, newTask];
-        setTasks(tasksArray);
+        setTasks(tasksArray)
     }
 
     return (
@@ -47,5 +47,5 @@ export function Tasks() {
             {IsOpenNewTask && <div className="bg-black/60 fixed top-0 left-0 w-full h-full" />}
             {IsOpenNewTask && <NewTask setIsOpenNewTask={setIsOpenNewTask} onTasksCreated={onTasksCreated} />}
         </div>
-    );
+    )
 }

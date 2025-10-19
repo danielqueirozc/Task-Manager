@@ -14,32 +14,32 @@ interface MenuTasksProps {
 export function MenuTasks({ setIsTasksCompleted, setIsAllTasks, isTasksCompleted, isTasksAll, setIsIncompletedTasks, isIncompletedTasks, isOpenTasksToday, setIsOpenTasksToday }: MenuTasksProps) {
     
     function handleIsOpenCompletedTasks() {
-        setIsTasksCompleted(true);
-        setIsAllTasks(false);
-        setIsIncompletedTasks(false);
-        setIsOpenTasksToday(false);
+        setIsTasksCompleted(true)
+        setIsAllTasks(false)
+        setIsIncompletedTasks(false)
+        setIsOpenTasksToday(false)
     }
 
     function handleIsOpenAllTasks() {
-        setIsAllTasks(true);
-        setIsTasksCompleted(false);
-        setIsIncompletedTasks(false);
-        setIsOpenTasksToday(false);
+        setIsAllTasks(true)
+        setIsTasksCompleted(false)
+        setIsIncompletedTasks(false)
+        setIsOpenTasksToday(false)
     }
 
     function handleIsOpenIncompletedTasks() {
-        setIsIncompletedTasks(true);
-        setIsAllTasks(false);
-        setIsTasksCompleted(false);
-        setIsOpenTasksToday(false);
+        setIsIncompletedTasks(true)
+        setIsAllTasks(false)
+        setIsTasksCompleted(false)
+        setIsOpenTasksToday(false)
 
     }
 
     function handleIsOpenTasksToday() {
-        setIsOpenTasksToday(true);
-        setIsTasksCompleted(false);
-        setIsAllTasks(false);
-        setIsIncompletedTasks(false);
+        setIsOpenTasksToday(true)
+        setIsTasksCompleted(false)
+        setIsAllTasks(false)
+        setIsIncompletedTasks(false)
     }
 
     return (
