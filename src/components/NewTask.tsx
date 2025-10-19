@@ -31,7 +31,7 @@ export function NewTask({ setIsOpenNewTask, onTasksCreated }: NewTaskProps) {
     }
 
     return (
-        <div className="flex flex-col justify-between w-full sm:w-[500px] h-[400px] bg-zinc-900 p-2 rounded-2xl fixed z-10 top-1/2 bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="flex flex-col justify-between w-full sm:w-[500px] h-[400px] bg-zinc-900 p-2 rounded-2xl fixed z-10 top-1/2 bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 border border-zinc-700">
             <div className="flex items-center justify-between">
                 <textarea
                     value={title}
@@ -54,7 +54,7 @@ export function NewTask({ setIsOpenNewTask, onTasksCreated }: NewTaskProps) {
                 />
             </div>
             <div className="flex items-center justify-center gap-4 py-2">
-                <button onClick={handleCreatedTask} className="w-16 h-10 bg-[#00BA9E] rounded-2xl">Criar</button>
+                <button onClick={handleCreatedTask} className="w-16 h-10 text-[#00BA9E] hover:text-zinc-700 rounded-2xl">Criar</button>
             </div>
         </div>
     );
